@@ -26,7 +26,7 @@ client = TextmagicRestClient(username, token)
 
 while True:
   #Do this check every minute 
-  #sleep(60 - time() % 60)
+  sleep(60 - time() % 60)
 
   ### NEWEGG ###
   response = requests.get(newegg_url)
