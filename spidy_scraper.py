@@ -19,6 +19,8 @@ headers = {
 newegg_url = 'https://www.newegg.com/evga-geforce-rtx-3080-10g-p5-3897-kr/p/N82E16814487518'
 amazon_url = 'https://www.amazon.com/Graphics-Technology-Backplate-DisplayPort-Supernova/dp/B08YP4DYFJ/'
 
+phoneNumber = ''
+
 #Set up TextMagic
 username = "startyinc"
 token = "DkVqJGUWNMJhtaVas3eCg1nbIlQzfE"
@@ -53,13 +55,13 @@ while True:
       correctEmoji = emoji.emojize(':eyes: :fire:')
       #Define the text to send...
       messageText = itemTitle + " is: " + finalStockStatus + correctEmoji
-      message = client.messages.create(phones="13616761174", text=messageText)
+      message = client.messages.create(phones=phoneNumber, text=messageText)
     else:
       correctEmoji = emoji.emojize(':crying_face:')
   
     messageText = itemTitle + " is: " + finalStockStatus + correctEmoji
     #Uncomment to send the text NO MATTER what the status is... (This will be pricy)
-    #message = client.messages.create(phones="13616761174", text=messageText)
+    #message = client.messages.create(phones=phoneNumber, text=messageText)
 
     #Print the message just because 
     print(messageText)  
@@ -91,7 +93,7 @@ while True:
     # You'll get a text if the price is less than $800... (you can change that number if you'd like)
     if int(itemCurrentPrice) <= 800:
       messageText = amazonItemTitle + " is: $" + itemCurrentPrice + " " + emoji.emojize(':eyes: :fire:')
-      message = client.messages.create(phones="13616761174", text=messageText)
+      message = client.messages.create(phones=phoneNumber, text=messageText)
     else:
       messageText = amazonItemTitle + " is: $" + itemCurrentPrice + " " + emoji.emojize(':crying_face:')
       print(messageText)
